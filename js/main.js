@@ -1,15 +1,11 @@
 // main.js — Funciones globales para toda la web
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ============================
   // 1. Mostrar el año actual en el pie de página
-  // ============================
   const yearEls = document.querySelectorAll('#year, #year-c, #year-p');
   yearEls.forEach(el => el.textContent = new Date().getFullYear());
 
-  // ============================
   // 2. Simular envío del formulario de contacto (index.html y contacto.html)
-  // ============================
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     const contactResult = document.getElementById('contact-result');
@@ -21,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============================
   // 3. Resaltar el enlace activo en la navegación
-  // ============================
   (function highlightActiveNav() {
     const navLinks = document.querySelectorAll('.main-nav a');
     if (!navLinks.length) return;
@@ -45,9 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // ============================
   // 4. Enlaces con hash que hacen scroll al inicio
-  // ============================
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
@@ -57,9 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ============================
   // 5. Accesibilidad: mostrar foco visible al navegar con teclado
-  // ============================
   document.body.addEventListener('keyup', (e) => {
     if (e.key === 'Tab') {
       document.body.classList.add('user-tabbing');

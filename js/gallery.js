@@ -1,9 +1,7 @@
 // gallery.js — Galería dinámica con filtros, paginación y lightbox
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ============================
   // 1. Lista de imágenes con categorías y descripciones
-  // ============================
   const IMAGES = [
     { id: 1, src: '../images/portatil-x100.jpg', title: 'Portátil X100', cat: 'portatiles', desc: 'Ligero y potente.' },
     { id: 2, src: '../images/portatil-2.jpg', title: 'Portátil Slim', cat: 'portatiles', desc: 'Diseño ultrafino.' },
@@ -17,16 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 10, src: '../images/accesorio-3.jpg', title: 'Soporte USB', cat: 'accesorios', desc: 'Compacto y útil.' }
   ];
 
-  // ============================
   // 2. Estado inicial
-  // ============================
   let currentFilter = 'all';
   let perPage = parseInt(document.getElementById('per-page').value, 10) || 9;
   let currentPage = 1;
 
-  // ============================
   // 3. Elementos del DOM
-  // ============================
   const galleryEl = document.getElementById('gallery');
   const paginationEl = document.getElementById('pagination');
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -41,16 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const lbNext = document.getElementById('lb-next');
   let lbIndex = 0;
 
-  // ============================
   // 4. Filtrar imágenes por categoría
-  // ============================
   function filteredImages() {
     return IMAGES.filter(i => currentFilter === 'all' ? true : i.cat === currentFilter);
   }
 
-  // ============================
   // 5. Renderizar galería con paginación
-  // ============================
   function renderGallery() {
     const items = filteredImages();
     const total = items.length;
@@ -108,9 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPagination(totalPages);
   }
 
-  // ============================
   // 6. Renderizar botones de paginación
-  // ============================
   function renderPagination(totalPages) {
     paginationEl.innerHTML = '';
     if (totalPages <= 1) return;
@@ -127,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ============================
   // 7. Filtros por categoría
-  // ============================
   filterBtns.forEach(b => {
     b.addEventListener('click', () => {
       filterBtns.forEach(x => x.classList.remove('active'));
@@ -140,18 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ============================
   // 8. Cambiar cantidad por página
-  // ============================
   perPageSelect.addEventListener('change', e => {
     perPage = parseInt(e.target.value, 10);
     currentPage = 1;
     renderGallery();
   });
 
-  // ============================
   // 9. Funciones del lightbox
-  // ============================
   function openLightbox(list) {
     const imgObj = list[lbIndex];
     if (!imgObj) {
@@ -195,9 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ============================
   // 10. Eventos del lightbox
-  // ============================
   lbClose.addEventListener('click', closeLightbox);
   lbPrev.addEventListener('click', () => navigateLightbox(-1));
   lbNext.addEventListener('click', () => navigateLightbox(1));
@@ -210,8 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ============================
   // 11. Inicializar galería
-  // ============================
   renderGallery();
 });

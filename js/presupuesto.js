@@ -2,9 +2,7 @@
 // Ubicación: /js/presupuesto.js
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ============================
   // 1. Elementos del formulario
-  // ============================
   const nameEl = document.getElementById('name');
   const surnameEl = document.getElementById('surname');
   const phoneEl = document.getElementById('phone');
@@ -31,16 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const result = document.getElementById('form-result');
   const resetBtn = document.getElementById('reset-btn');
 
-  // ============================
   // 2. Expresiones regulares para validación
-  // ============================
   const reLetters = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
   const rePhone = /^\d{1,9}$/;
   const reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // ============================
   // 3. Validaciones por campo
-  // ============================
   function validateName() {
     const v = nameEl.value.trim();
     if (!v) { errName.textContent = 'El nombre es obligatorio.'; return false; }
@@ -76,9 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  // ============================
   // 4. Conectar validaciones a eventos
-  // ============================
   if (nameEl) nameEl.addEventListener('input', validateName);
   if (surnameEl) surnameEl.addEventListener('input', validateSurname);
   if (phoneEl) {
@@ -89,9 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (emailEl) emailEl.addEventListener('input', validateEmail);
 
-  // ============================
   // 5. Cálculo del presupuesto
-  // ============================
   function getSelectedProductPrice() {
     const opt = productSel && productSel.selectedOptions ? productSel.selectedOptions[0] : null;
     return opt ? Number(opt.dataset.price || 0) : 0;
@@ -138,9 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     totalEl.textContent = formatCurrency(total);
   }
 
-  // ============================
   // 6. Eventos para actualizar presupuesto
-  // ============================
   if (productSel) productSel.addEventListener('change', updateBudgetDisplay);
   if (termEl) {
     termEl.addEventListener('input', () => {
@@ -152,9 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   extrasEls.forEach(ch => ch.addEventListener('change', updateBudgetDisplay));
   shippingEls.forEach(r => r.addEventListener('change', updateBudgetDisplay));
 
-  // ============================
   // 7. Botón de reset
-  // ============================
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       if (form) form.reset();
@@ -164,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============================
   // 8. Envío del formulario (simulado)
-  // ============================
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
