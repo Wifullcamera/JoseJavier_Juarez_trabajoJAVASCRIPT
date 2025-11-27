@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       result.style.color = 'green';
-      result.textContent = 'Presupuesto enviado correctamente. A continuación se muestra un resumen: ' + JSON.stringify(summary);
+      result.textContent = 'Presupuesto enviado correctamente.';
     });
   }
 });
