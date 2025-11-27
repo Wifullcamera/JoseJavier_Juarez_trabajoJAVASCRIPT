@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const GOOGLE_TECH_RSS =
     'https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=es&gl=ES&ceid=ES:es';
 
-  // Proxy CORS gratuito
-  const PROXY = 'https://api.allorigins.win/get?url=';
+  // Proxy CORS gratuito (modo raw para evitar problemas de HTTP/2 y JSON intermedio)
+  const PROXY = 'https://api.allorigins.win/raw?url=';
 
   function showError(msg) {
     newsList.innerHTML = `<p class="muted">${msg}</p>`;
@@ -88,8 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
-          const data = JSON.parse(xhr.responseText);
-          const xmlString = data.contents;
+          const xmlString = xhr.responseText;
           const items = parseRssItems(xmlString);
           if (!items.length) {
             showError('No se pudieron procesar las noticias.');
