@@ -1,24 +1,29 @@
 {
   "articles": [
     {
-      "title": "Apple lanza nuevos MacBook Pro con chips M5",
-      "link": "https://news.google.com/articles/CBMiZWh0dHBzOi8vZXhhbXBsZS5jb20vYXBwbGUtbWFjYm9vay1wcm8tbTU",
-      "source": "Google Noticias"
+      "title": "Últimas noticias de tecnología en Google News",
+      "source": "Google News — Ciencia y tecnología",
+      "link": "https://news.google.com/home?ceid=VE:es-419&gl=VE&hl=es-419&topic=t"
     },
     {
-      "title": "Samsung presenta su pantalla enrollable para móviles",
-      "link": "https://news.google.com/articles/CBMiZGh0dHBzOi8vZXhhbXBsZS5jb20vc2Ftc3VuZy1lbnJvbGxhYmxl",
-      "source": "Google Noticias"
+      "title": "Portátiles, móviles y gadgets: análisis y comparativas",
+      "source": "Xataka",
+      "link": "https://www.xataka.com/"
     },
     {
-      "title": "Microsoft integra IA en Windows 12",
-      "link": "https://news.google.com/articles/CBMiZ2h0dHBzOi8vZXhhbXBsZS5jb20vbWljcm9zb2Z0LXdpbmRvd3MtMTI",
-      "source": "Google Noticias"
+      "title": "Noticias y tutoriales de tecnología en Computer Hoy",
+      "source": "Computer Hoy",
+      "link": "https://computerhoy.20minutos.es/"
     },
     {
-      "title": "Google mejora la privacidad en Android 15",
-      "link": "https://news.google.com/articles/CBMiZ2h0dHBzOi8vZXhhbXBsZS5jb20vYW5kcm9pZC0xNS1wcml2YWNpZGFk",
-      "source": "Google Noticias"
+      "title": "Ofertas y novedades tecnológicas del día",
+      "source": "ADSLZone",
+      "link": "https://www.adslzone.net/"
+    },
+    {
+      "title": "Tendencias en inteligencia artificial y software",
+      "source": "Genbeta",
+      "link": "https://www.genbeta.com/"
     }
   ]
 }

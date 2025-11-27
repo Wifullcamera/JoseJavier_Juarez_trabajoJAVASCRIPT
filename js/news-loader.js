@@ -1,45 +1,15 @@
-// news-loader.js — carga de titulares tecnológicos desde Google News (RSS) usando Ajax
-// Nota: Se usa el proxy público api.allorigins.win para evitar problemas de CORS
-// y poder consumir el RSS de Google News desde GitHub Pages o un hosting estático.
+// news-loader.js — carga de noticias desde un archivo JSON externo utilizando Ajax (XMLHttpRequest)
 
 document.addEventListener('DOMContentLoaded', () => {
   const newsList = document.getElementById('news-list');
   if (!newsList) return;
 
-  // RSS de noticias de Tecnología de Google News (edición España, idioma español)
-  const GOOGLE_TECH_RSS =
-    'https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=es&gl=ES&ceid=ES:es';
-
-  // Proxy CORS gratuito (modo raw para evitar problemas de HTTP/2 y JSON intermedio)
-  const PROXY = 'https://api.allorigins.win/raw?url=';
-
+  // Mostrar un mensaje de error en la zona de noticias
   function showError(msg) {
     newsList.innerHTML = `<p class="muted">${msg}</p>`;
   }
 
-  // Convierte los <item> del RSS en un array de objetos { title, link, source }
-  function parseRssItems(xmlString) {
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlString, 'text/xml');
-    const items = Array.from(xml.getElementsByTagName('item'));
-
-    if (!items.length) {
-      return [];
-    }
-
-    return items.slice(0, 6).map((item) => {
-      const titleEl = item.getElementsByTagName('title')[0];
-      const linkEl = item.getElementsByTagName('link')[0];
-      const sourceEl = item.getElementsByTagName('source')[0];
-
-      const title = titleEl ? titleEl.textContent : 'Titular sin título';
-      const link = linkEl ? linkEl.textContent : '#';
-      const source = sourceEl ? sourceEl.textContent : 'Google News — Tecnología';
-
-      return { title, link, source };
-    });
-  }
-
+  // Pintar las tarjetas de noticias a partir de un array de objetos
   function renderNews(items) {
     if (!Array.isArray(items) || items.length === 0) {
       showError('No hay noticias disponibles en este momento.');
@@ -53,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'news-card';
 
       const title = document.createElement('h3');
-      title.textContent = item.title;
+      title.textContent = item.title || 'Titular sin título';
 
       const meta = document.createElement('p');
       meta.className = 'muted small';
-      meta.textContent = item.source;
+      meta.textContent = item.source || '';
 
       const link = document.createElement('a');
       link.href = item.link || '#';
@@ -76,27 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     newsList.appendChild(fragment);
   }
 
-  // Carga las noticias de Google News Tecnología usando Ajax (XMLHttpRequest + proxy CORS)
-  function loadGoogleTechNews() {
+  // Cargar noticias mediante Ajax desde un archivo JSON externo (misma origen)
+  function loadLocalNews() {
     const xhr = new XMLHttpRequest();
-    const url = PROXY + encodeURIComponent(GOOGLE_TECH_RSS);
-
-    xhr.open('GET', url, true);
+    xhr.open('GET', 'js/noticias.json', true);
 
     xhr.onreadystatechange = function () {
       if (xhr.readyState !== 4) return;
 
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
-          const xmlString = xhr.responseText;
-          const items = parseRssItems(xmlString);
-          if (!items.length) {
-            showError('No se pudieron procesar las noticias.');
-          } else {
-            renderNews(items);
-          }
+          const data = JSON.parse(xhr.responseText);
+          // Se espera que el JSON tenga una propiedad "articles"
+          renderNews(data.articles || []);
         } catch (err) {
-          console.error('Error procesando el RSS de Google News:', err);
+          console.error('Error procesando el JSON de noticias:', err);
           showError('No se pudieron procesar las noticias.');
         }
       } else {
@@ -110,12 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
       showError('No se pudieron cargar las noticias.');
     };
 
-    // Mensaje mientras se realiza la petición Ajax
-    newsList.innerHTML = '<p class="muted">Cargando noticias de tecnología...</p>';
-
+    newsList.innerHTML = '<p class="muted">Cargando noticias...</p>';
     xhr.send();
   }
 
   // Inicializar
-  loadGoogleTechNews();
+  loadLocalNews();
 });
