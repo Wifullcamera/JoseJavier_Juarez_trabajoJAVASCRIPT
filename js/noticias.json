@@ -1,0 +1,24 @@
+{
+  "articles": [
+    {
+      "title": "Apple lanza nuevos MacBook Pro con chips M5",
+      "link": "https://news.google.com/articles/CBMiZWh0dHBzOi8vZXhhbXBsZS5jb20vYXBwbGUtbWFjYm9vay1wcm8tbTU",
+      "source": "Google Noticias"
+    },
+    {
+      "title": "Samsung presenta su pantalla enrollable para móviles",
+      "link": "https://news.google.com/articles/CBMiZGh0dHBzOi8vZXhhbXBsZS5jb20vc2Ftc3VuZy1lbnJvbGxhYmxl",
+      "source": "Google Noticias"
+    },
+    {
+      "title": "Microsoft integra IA en Windows 12",
+      "link": "https://news.google.com/articles/CBMiZ2h0dHBzOi8vZXhhbXBsZS5jb20vbWljcm9zb2Z0LXdpbmRvd3MtMTI",
+      "source": "Google Noticias"
+    },
+    {
+      "title": "Google mejora la privacidad en Android 15",
+      "link": "https://news.google.com/articles/CBMiZ2h0dHBzOi8vZXhhbXBsZS5jb20vYW5kcm9pZC0xNS1wcml2YWNpZGFk",
+      "source": "Google Noticias"
+    }
+  ]
+}

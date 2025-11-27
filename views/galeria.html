@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería - Betty Tech Ware</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">Betty Tech Ware</a>
+      <nav class="main-nav" aria-label="Menú principal">
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html" class="active">Galería</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1>Galería de productos</h1>
+      <p class="muted">Explora nuestros dispositivos y accesorios destacados.</p>
+
+      <!-- Filtros -->
+      <div style="margin: 1rem 0">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="portatiles">Portátiles</button>
+        <button class="filter-btn" data-filter="auriculares">Auriculares</button>
+        <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+        <label style="margin-left: 1rem">
+          Mostrar
+          <select id="per-page">
+            <option value="6">6</option>
+            <option value="9" selected>9</option>
+            <option value="12">12</option>
+          </select>
+          por página
+        </label>
+      </div>
+
+      <!-- Galería -->
+      <div id="gallery" class="gallery-grid"></div>
+
+      <!-- Paginación -->
+      <div id="pagination" class="pagination"></div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lb-content">
+      <button id="lb-close" class="lb-close" aria-label="Cerrar">×</button>
+      <button id="lb-prev" class="lb-prev" aria-label="Anterior">‹</button>
+      <!-- Imagen inicial con src seguro -->
+      <img id="lb-image" src="about:blank" alt="Imagen de producto">
+      <div id="lb-caption" class="lb-caption"></div>
+      <button id="lb-next" class="lb-next" aria-label="Siguiente">›</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <small>© <span id="year"></span> Betty Tech Ware</small>
+        <div class="muted small">C/ Mayor, 1 — 28013 Madrid</div>
+        <a href="#" class="footer-legal">Aviso legal</a>
+      </div>
+      <div class="footer-social">
+        <span class="muted small">Síguenos:</span>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Twitter" class="footer-icon">T</a>
+          <a href="#" aria-label="Facebook" class="footer-icon">F</a>
+          <a href="#" aria-label="Instagram" class="footer-icon">I</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/gallery.js"></script>
+  <script>
+    const yearG = document.getElementById('year-g');
+    if (yearG) yearG.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

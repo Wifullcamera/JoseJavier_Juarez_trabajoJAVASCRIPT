@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto - Betty Tech Ware</title>
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Encabezado con logotipo y navegación principal -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">Betty Tech Ware</a>
+      <nav class="main-nav" aria-label="Menú principal">
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html">Galería</a>
+        <a href="presupuesto.html" class="active">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Sección principal del formulario de presupuesto -->
+    <section class="section">
+      <h1>Solicitar presupuesto</h1>
+      <p class="muted">Rellena tus datos y configura el producto. El presupuesto se actualizará en tiempo real.</p>
+
+      <form id="budget-form" novalidate>
+        <!-- Parte 1: Datos de contacto -->
+        <fieldset class="card-fieldset">
+          <legend>Datos de contacto</legend>
+
+          <label for="name">Nombre
+            <input id="name" name="name" type="text" maxlength="15" required>
+            <small class="field-error" id="err-name"></small>
+          </label>
+
+          <label for="surname">Apellidos
+            <input id="surname" name="surname" type="text" maxlength="40" required>
+            <small class="field-error" id="err-surname"></small>
+          </label>
+
+          <label for="phone">Teléfono
+            <input id="phone" name="phone" type="tel" maxlength="9" inputmode="numeric" required>
+            <small class="field-error" id="err-phone"></small>
+          </label>
+
+          <label for="email">Correo electrónico
+            <input id="email" name="email" type="email" required>
+            <small class="field-error" id="err-email"></small>
+          </label>
+        </fieldset>
+
+        <!-- Parte 2: Configuración del presupuesto -->
+        <fieldset class="card-fieldset">
+          <legend>Presupuesto</legend>
+
+          <!-- Selección de producto -->
+          <label for="product">Producto
+            <select id="product" required>
+              <option value="" data-price="0">-- Elige un producto --</option>
+              <option value="x100" data-price="799">Portátil X100 — 799 €</option>
+              <option value="auripro" data-price="129">Auriculares Pro — 129 €</option>
+              <option value="mecha" data-price="99">Teclado Mecha — 99 €</option>
+            </select>
+          </label>
+
+          <!-- Plazo de entrega -->
+          <label for="term">Plazo (meses)
+            <input id="term" type="number" min="0" step="1" value="0">
+            <small class="muted">Introduce 0 si no aplica; se aplican descuentos según plazo</small>
+          </label>
+
+          <!-- Extras opcionales -->
+          <div class="extras-list">
+            <label><input type="checkbox" class="extra" data-price="29" value="funda"> Funda protectora — 29 €</label>
+            <label><input type="checkbox" class="extra" data-price="49" value="garantia"> Garantía extendida — 49 €</label>
+            <label><input type="checkbox" class="extra" data-price="19" value="soporte"> Soporte técnico 1 año — 19 €</label>
+          </div>
+
+          <!-- Envío -->
+          <div>
+            <label><input type="radio" name="shipping" value="standard" data-price="0" checked> Envío estándar — 0 €</label>
+            <label><input type="radio" name="shipping" value="express" data-price="19"> Envío exprés — 19 €</label>
+          </div>
+
+          <!-- Resumen del presupuesto -->
+          <div class="budget-summary card-budget" aria-live="polite">
+            <h3>Resumen del presupuesto</h3>
+            <div class="budget-line"><span>Base:</span> <span id="budget-base">0 €</span></div>
+            <div class="budget-line"><span>Extras:</span> <span id="budget-extras">0 €</span></div>
+            <div class="budget-line"><span>Envío:</span> <span id="budget-shipping">0 €</span></div>
+            <div class="budget-line"><span>Descuento por plazo:</span> <span id="budget-discount">0 €</span></div>
+            <hr>
+            <div class="budget-total"><strong>Total:</strong> <strong id="budget-total">0 €</strong></div>
+            <div class="muted small">Se actualiza automáticamente al cambiar las opciones.</div>
+          </div>
+        </fieldset>
+
+        <!-- Parte 3: Condiciones y envío -->
+        <fieldset class="card-fieldset">
+          <label class="conditions">
+            <input id="accept" type="checkbox" required> Acepto las condiciones de privacidad y el tratamiento de datos.
+          </label>
+
+          <div class="form-actions">
+            <button id="reset-btn" type="button" class="btn-outline">Resetear</button>
+            <button id="submit-btn" type="submit" class="btn-primary">Enviar presupuesto</button>
+          </div>
+
+          <div id="form-result" class="form-result" aria-live="polite"></div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de página con redes sociales, dirección y aviso legal -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <small>© <span id="year"></span> Betty Tech Ware</small>
+        <div class="muted small">C/ Mayor, 1 — 28013 Madrid</div>
+        <a href="#" class="footer-legal">Aviso legal</a>
+      </div>
+      <div class="footer-social">
+        <span class="muted small">Síguenos:</span>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Twitter" class="footer-icon">T</a>
+          <a href="#" aria-label="Facebook" class="footer-icon">F</a>
+          <a href="#" aria-label="Instagram" class="footer-icon">I</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script de cálculo y validación del presupuesto -->
+  <script src="../js/presupuesto.js"></script>
+</body>
+</html>

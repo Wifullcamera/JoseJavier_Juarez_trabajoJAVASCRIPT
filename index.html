@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Betty Tech Ware</title>
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Encabezado del sitio con logotipo y navegación principal -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Betty Tech Ware</a>
+      <nav class="main-nav" aria-label="Menú principal">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="views/galeria.html">Galería</a>
+        <a href="views/presupuesto.html">Presupuesto</a>
+        <a href="views/contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Sección principal de bienvenida -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Tecnología pensada para trabajar</h1>
+          <p class="muted">Equipos y accesorios seleccionados para profesionales y creadores.</p>
+          <p>
+            <a href="#productos" class="btn-primary">Ver productos</a>
+            <a href="views/presupuesto.html" class="btn-outline">Pedir presupuesto</a>
+          </p>
+        </div>
+        <div class="hero-visual">
+          <img src="images/hero-laptop.jpg" alt="Portátil en escritorio">
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de productos destacados -->
+    <section id="productos" class="section">
+      <h2>Productos destacados</h2>
+      <p class="muted">Selección de lo mejor de nuestra tienda.</p>
+
+      <div class="products-grid">
+        <!-- Tarjeta de producto: Portátil X100 -->
+        <article class="product-card" data-product-id="x100">
+          <img src="images/portatil-x100.jpg" alt="Portátil X100">
+          <div>
+            <h3>Portátil X100</h3>
+            <p class="product-desc">Rendimiento equilibrado y batería para todo el día.</p>
+            <p class="price">799 €</p>
+            <div style="margin-top:.5rem">
+              <button data-action="fav" class="btn-outline">Favorito</button>
+              <a href="views/presupuesto.html" class="btn-primary" style="margin-left:.5rem">Presupuesto</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta de producto: Auriculares Pro -->
+        <article class="product-card" data-product-id="auripro">
+          <img src="images/auriculares-pro.jpg" alt="Auriculares Pro">
+          <div>
+            <h3>Auriculares Pro</h3>
+            <p class="product-desc">Cancelación de ruido y sonido envolvente.</p>
+            <p class="price">129 €</p>
+            <div style="margin-top:.5rem">
+              <button data-action="fav" class="btn-outline">Favorito</button>
+              <a href="views/presupuesto.html" class="btn-primary" style="margin-left:.5rem">Presupuesto</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta de producto: Teclado Mecha -->
+        <article class="product-card" data-product-id="mecha">
+          <img src="images/teclado-mecha.jpg" alt="Teclado Mecha">
+          <div>
+            <h3>Teclado Mecha</h3>
+            <p class="product-desc">Teclas mecánicas y diseño compacto.</p>
+            <p class="price">99 €</p>
+            <div style="margin-top:.5rem">
+              <button data-action="fav" class="btn-outline">Favorito</button>
+              <a href="views/presupuesto.html" class="btn-primary" style="margin-left:.5rem">Presupuesto</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección de noticias dinámicas cargadas desde JSON -->
+    <section id="noticias" class="section">
+      <h2>Últimas noticias</h2>
+      <p class="muted">Novedades y actualizaciones.</p>
+      <div id="news-list" class="news-list">
+        <!-- Las noticias se cargarán dinámicamente desde js/noticias.json -->
+      </div>
+    </section>
+
+    <!-- Sección de contacto rápido -->
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <p class="muted">¿Dudas? Ponte en contacto o visítanos.</p>
+
+      <div class="contact-grid">
+        <!-- Información de contacto -->
+        <div class="contact-info">
+          <p><strong>Betty Tech Ware</strong></p>
+          <ul class="contact-list">
+            <li>C/ Mayor, 1 — 28013 Madrid</li>
+            <li>info@bettytechware.test</li>
+            <li>+34 600 000 000</li>
+          </ul>
+          <p style="margin-top:.6rem">
+            <a href="views/contacto.html" class="btn-primary">Cómo llegar</a>
+            <a href="views/galeria.html" class="btn-outline" style="margin-left:.5rem">Galería</a>
+          </p>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="contact-form card-fieldset" style="padding:1rem">
+          <h3>Envía un mensaje</h3>
+          <form id="contact-form">
+            <label>
+              Tu nombre
+              <input name="cname" type="text" required>
+            </label>
+            <label>
+              Tu correo
+              <input name="cemail" type="email" required>
+            </label>
+            <label>
+              Mensaje
+              <textarea name="cmsg" rows="4" required></textarea>
+            </label>
+            <div style="display:flex;gap:.5rem;justify-content:flex-end">
+              <button type="submit" class="btn-primary">Enviar</button>
+            </div>
+            <div id="contact-result" aria-live="polite" style="margin-top:.5rem"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página con redes sociales, dirección y aviso legal -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <small>© <span id="year"></span> Betty Tech Ware</small>
+        <div class="muted small">C/ Mayor, 1 — 28013 Madrid</div>
+        <a href="#" class="footer-legal">Aviso legal</a>
+      </div>
+      <div class="footer-social">
+        <span class="muted small">Síguenos:</span>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Twitter" class="footer-icon">T</a>
+          <a href="#" aria-label="Facebook" class="footer-icon">F</a>
+          <a href="#" aria-label="Instagram" class="footer-icon">I</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts para cargar noticias y funcionalidades globales -->
+  <script src="js/news-loader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

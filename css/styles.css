@@ -1,0 +1,449 @@
+/* ============================
+   Reset básico y tipografía
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+
+main {
+  flex: 1;
+}
+
+/* ============================
+   Contenedores generales
+   ============================ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  margin: 2rem 0;
+}
+
+.muted {
+  color: #666;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+/* ============================
+   Encabezado y navegación
+   ============================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.main-nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.main-nav a.active {
+  color: #0077cc;
+  border-bottom: 2px solid #0077cc;
+}
+
+/* ============================
+   Botones
+   ============================ */
+.btn-primary {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #005fa3;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #0077cc;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0077cc;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+/* ============================
+   Hero principal
+   ============================ */
+.hero {
+  background-color: #eef6fb;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+}
+
+.hero-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-visual img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* ============================
+   Productos destacados
+   ============================ */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.price {
+  font-weight: bold;
+  color: #0077cc;
+}
+
+/* ============================
+   Noticias
+   ============================ */
+.news-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.news-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.news-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================
+   Contacto
+   ============================ */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.3rem;
+}
+
+/* ============================
+   Formularios
+   ============================ */
+form label {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 0.4rem;
+  margin-top: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.field-error {
+  color: crimson;
+  font-size: 0.8rem;
+}
+
+/* ============================
+   Presupuesto
+   ============================ */
+.card-fieldset {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.extras-list label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.budget-summary {
+  margin-top: 1rem;
+}
+
+.budget-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.budget-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* ============================
+   Galería
+   ============================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.thumb-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.thumb-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.thumb-info {
+  padding: 0.5rem;
+}
+
+.thumb-info h4 {
+  margin-bottom: 0.3rem;
+}
+
+/* Paginación */
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #0077cc;
+  background-color: #fff;
+  color: #0077cc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lb-content {
+  max-width: 90%;
+  max-height: 80%;
+  text-align: center;
+}
+
+.lb-content img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 6px;
+}
+
+.lb-caption {
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+.lb-close, .lb-prev, .lb-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lb-close {
+  top: 1rem;
+  right: 1rem;
+}
+
+.lb-prev {
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lb-next {
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ============================
+   Footer
+   ============================ */
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-legal {
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.footer-nav a {
+  color: #fff;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.footer-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #0077cc;
+  color: #fff;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+  text-decoration: none;
+}
