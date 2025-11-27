@@ -13,15 +13,15 @@ La web incluye:
 
 ---
 
-## 🚀 Demo
+## Demo
 
 La versión publicada del proyecto está disponible en **GitHub Pages**:
 
-👉 **https://wifullcamera.github.io/JoseJavier_Juarez_trabajoJAVASCRIPT/**
+ **https://wifullcamera.github.io/JoseJavier_Juarez_trabajoJAVASCRIPT/**
 
 
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 text
 JoseJavier_Juarez_trabajoJAVASCRIPT/
